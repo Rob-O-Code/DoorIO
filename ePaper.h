@@ -8,6 +8,7 @@
 class ePaper {
   public:
     int init(void);
+    int display(void);
   private:
     bool isInit;
 };
