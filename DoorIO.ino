@@ -1,3 +1,16 @@
 ///////////////////////////////////////////////////////
 // Robbie Oleynick, Nate Reppucci, Cameron Pelletier //
 ///////////////////////////////////////////////////////
+
+#include "ePaper.h"
+
+ePaper epd;
+
+void setup() {
+  Serial.begin(115200);
+  epd.init();
+}
+
+void loop() {
+  
+}
