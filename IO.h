@@ -11,6 +11,7 @@ class MyIO {
   public:
     MyIO() {};
     void init();
+    bool isPIR() {return digitalRead(PIR_PIN);}
   
 };
 

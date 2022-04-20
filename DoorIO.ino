@@ -2,46 +2,63 @@
 // Robbie Oleynick, Nate Reppucci, Cameron Pelletier //
 ///////////////////////////////////////////////////////
 
-#include <Arduino.h>
-#include "Bluetooth.h"
-#define PIR_PIN 14
-#define PHOTO_PIN 4
-#define BUZZ_PIN 25
+#include "bluetooth.h"
+#include "display.h"
+#include "IO.h"
 
 MyBluetooth myBluetooth;
+MyDisplay myDisplay;
+MyIO myIO;
+Registry registry;
+
+User *robbie, *nate;
 
 void setup() {
   Serial.begin(115200);
-  pinMode(PIR_PIN, INPUT);
-  pinMode(PHOTO_PIN, INPUT);
-  pinMode(BUZZ_PIN, OUTPUT);
 
-  myBluetooth.init();
+  robbie = new User("Robbie");
+  Device* flip52 = new Device(BLEAddress("b8:f6:53:92:a9:a3"), "Flip 5.2", -58);
+  robbie->addDevice(flip52);
+  registry.addDevice(flip52);
+  Device* nateHeadphones = new Device(BLEAddress("94:db:56:02:61:6b"), "Nate's Headphones", -58);
+  robbie->addDevice(nateHeadphones);
+  registry.addDevice(nateHeadphones);
+  nate = new User("Nate");
+  Device* flip51 = new Device(BLEAddress("5c:fb:7c:cc:df:e8"), "Flip 5.1", -58);
+  nate->addDevice(flip51);
+  registry.addDevice(flip51);
+
+  myIO.init();
+  if (myDisplay.init()) {
+    Serial.println("Error initializing display");
+    while (1);
+  };
+  myBluetooth.init(&registry);
+
+  myDisplay.update();
+  delay(500);
+  myDisplay.setUser(0, robbie);
+  myDisplay.setUser(1, nate);
+  myDisplay.setScreen(Debug);
 }
 
 int timer = 0;
 
 void loop() {
+  while (!myIO.isPIR());
+  registry.clearInfo();
+  myDisplay.update();
+  for (unsigned int i = 50; i <= 255; i++) {
+    myDisplay.setBacklight((uint8_t) i);
+    delay(2);
+  }
   myBluetooth.testScan();
-  /*
-  static bool prevSense = digitalRead(PIR_PIN);
-  bool sense = digitalRead(PIR_PIN);
-  if (prevSense != sense) {
-    Serial.print("Now ");
-    Serial.println(sense ? "HIGH" : "LOW");
-    prevSense = sense;
-    if (sense) {
-      digitalWrite(BUZZ_PIN, HIGH);
-      timer = 20;
-    }
+  myDisplay.update();
+  delay(3000);
+  for (unsigned int i = 255; i <= 50; i--) {
+    myDisplay.setBacklight((uint8_t) i);
+    delay(2);
   }
-  int value = analogRead(PHOTO_PIN);
-  //Serial.printf("%d\n", value);
-
-  if (timer > 0) {
-    timer--;
-  } else {
-    digitalWrite(BUZZ_PIN, LOW);
-  }
-  delay(10);*/
+  delay(500);
+  Serial.println("Loop!");
 }

@@ -1,31 +1,36 @@
-#ifndef BLUETOOTH_H_
-#define BLUETOOTH_H_
+#pragma once
 
 #include <Arduino.h>
 #include <BLEDevice.h>
 #include <BLEUtils.h>
 #include <BLEScan.h>
 #include <BLEAdvertisedDevice.h>
+#include "user.h"
 
 class MyBluetooth {
   public:
     MyBluetooth() {};
-    void init();
+    void init(Registry* registry);
     void testScan();
+    Registry* getRegistry() {return _registry;}
+    
   private:
     static const int scanTime = 5;
     BLEScan* pBLEScan;
+    Registry* _registry;
 };
 
 class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks {
+  friend class MyBluetooth;
+  Registry* _registry;
+
   void onResult(BLEAdvertisedDevice advertisedDevice) {
-    static std::string NatePhones = "94:db:56:02:61:6b";
-    static BLEAddress NateAddress = BLEAddress(NatePhones);
-    //Serial.printf("Advertised Device: %s \n", advertisedDevice.toString().c_str());
-    if (advertisedDevice.getAddress().equals(NateAddress)) {
-      Serial.printf("Nate RSSI: %d\n", advertisedDevice.getRSSI());
+    Serial.printf("Advertised Device: %s ", advertisedDevice.toString().c_str());
+    Device* device = _registry->getDevice(advertisedDevice.getAddress());
+    if (device != nullptr) {
+      device->recordRSSI(advertisedDevice.getRSSI());
+      Serial.print("MATCH!");
     }
+    Serial.println("");
   }
 };
-
-#endif

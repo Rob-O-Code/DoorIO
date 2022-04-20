@@ -1,15 +1,19 @@
 #include "bluetooth.h"
 
-void MyBluetooth::init() {
+void MyBluetooth::init(Registry* registry) {
+  _registry = registry;
   BLEDevice::init("");
   pBLEScan = BLEDevice::getScan(); //create new scan
-  pBLEScan->setAdvertisedDeviceCallbacks(new MyAdvertisedDeviceCallbacks());
+  MyAdvertisedDeviceCallbacks* mAC = new MyAdvertisedDeviceCallbacks();
+  mAC->_registry = registry;
+  pBLEScan->setAdvertisedDeviceCallbacks(mAC);
   pBLEScan->setActiveScan(true); //active scan uses more power, but get results faster
   pBLEScan->setInterval(100);
   pBLEScan->setWindow(99);  // less or equal setInterval value
 }
 
 void MyBluetooth::testScan() {
+  _registry->clearInfo();
   BLEScanResults foundDevices = pBLEScan->start(scanTime, false);
   //Serial.print("Devices found: ");
   //Serial.println(foundDevices.getCount());
