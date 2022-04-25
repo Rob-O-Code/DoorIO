@@ -86,7 +86,7 @@ int Registry::addDevice(Device* device) {
 Device* Registry::getDevice(BLEAddress address) {
     for (unsigned int i = 0; i < MAX_USERS * MAX_DEVICES; i++) {
         if (devices[i] == nullptr) continue;
-        Serial.printf("(%c) ", devices[i]->getAddress().toString());
+        Serial.printf("(%s) ", devices[i]->getAddress().toString());
         if (address.equals(devices[i]->getAddress()))
         return devices[i];
     }

@@ -36,7 +36,7 @@ void setup() {
   myBluetooth.init(&registry);
 
   myDisplay.update();
-  delay(500);
+  delay(500UL);
   myDisplay.setUser(0, robbie);
   myDisplay.setUser(1, nate);
   myDisplay.setScreen(Debug);
@@ -50,15 +50,18 @@ void loop() {
   myDisplay.update();
   for (unsigned int i = 50; i <= 255; i++) {
     myDisplay.setBacklight((uint8_t) i);
-    delay(2);
+    delay(2UL);
   }
   myBluetooth.testScan();
+  myIO.setBuzz(HIGH);
   myDisplay.update();
-  delay(3000);
-  for (unsigned int i = 255; i <= 50; i--) {
+  delay(100UL);
+  myIO.setBuzz(LOW);
+  delay(3000UL);
+  for (unsigned int i = 255; i >= 50; i--) {
     myDisplay.setBacklight((uint8_t) i);
-    delay(2);
+    delay(2UL);
   }
-  delay(500);
+  delay(2000UL);
   Serial.println("Loop!");
 }

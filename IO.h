@@ -12,6 +12,8 @@ class MyIO {
     MyIO() {};
     void init();
     bool isPIR() {return digitalRead(PIR_PIN);}
+
+    void setBuzz(bool state);
   
 };
 

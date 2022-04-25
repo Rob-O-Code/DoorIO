@@ -4,6 +4,11 @@ void MyIO::init() {
     pinMode(PIR_PIN, INPUT);
     pinMode(PHOTO_PIN, INPUT);
     pinMode(BUZZ_PIN, OUTPUT);
+    digitalWrite(BUZZ_PIN, LOW);
+}
+
+void MyIO::setBuzz(bool state) {
+  digitalWrite(BUZZ_PIN, state);
 }
 
 /*
