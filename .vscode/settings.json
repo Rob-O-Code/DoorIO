@@ -77,6 +77,9 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "cinttypes": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "esp32-hal.h": "c",
+        "tcpip_adapter.h": "c",
+        "sntp.h": "c"
     }
 }

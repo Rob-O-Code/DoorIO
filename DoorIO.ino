@@ -5,6 +5,7 @@
 #include "bluetooth.h"
 #include "display.h"
 #include "IO.h"
+#include "internet.h"
 
 MyBluetooth myBluetooth;
 MyDisplay myDisplay;
