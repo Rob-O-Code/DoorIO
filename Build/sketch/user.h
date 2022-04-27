@@ -15,6 +15,7 @@ class Device {
         int getRSSIThresh();
         BLEAddress getAddress();
         bool getDetected() {return _detected;}
+        bool getPresent() {return _present;}
         int getRecordedRSSI() {return _recordedRSSI;}
 
         void setName(std::string name);
@@ -28,6 +29,7 @@ class Device {
         int _rssiThresh = 0;
 
         bool _detected = false;
+        bool _present = false;
         int _recordedRSSI = MIN_RSSI;
 };
 
@@ -37,6 +39,7 @@ class User {
 
         std::string getName();
         Device** getDevices();
+        bool getPresent();
 
         int addDevice(Device* device);
     private:

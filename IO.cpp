@@ -23,6 +23,14 @@ int MyIO::init() {
 	return 0;
 }
 
+unsigned long MyIO::lastPIR() {
+	if (isPIR()) {
+		timeLastPIR = millis();
+		return 0;
+	}
+	return millis() - timeLastPIR;
+}
+
 void MyIO::setBuzz(bool state) {
 	digitalWrite(BUZZ_PIN, state);
 }
@@ -39,7 +47,6 @@ uint16_t MyIO::getPhotoSmooth() {
 		sum += photoCircular[i];
 	}
 	sum /= PHOTO_NUMREADINGS;
-	Serial.print("LOL: "); Serial.print(sum); Serial.print("   ");
 	return (uint16_t) sum;
 }
 

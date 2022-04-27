@@ -19,6 +19,7 @@ class MyIO {
 		int init();
 
 		bool isPIR() {return digitalRead(PIR_PIN);}
+		unsigned long lastPIR();
 
 		void setBuzz(bool state);
 
@@ -29,6 +30,8 @@ class MyIO {
 
 	private:
 		Adafruit_MSA311 msa;
+
+		unsigned long timeLastPIR;
 
 		uint8_t photoCircularIndex = 0;
 		int16_t photoCircular[PHOTO_NUMREADINGS];

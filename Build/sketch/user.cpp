@@ -31,11 +31,13 @@ void Device::setRSSIThresh(int rssiThresh) {
 void Device::recordRSSI(int rssi) {
     _recordedRSSI = rssi;
     _detected = true;
+    if (_recordedRSSI >= _rssiThresh) _present = true;
 }
 
 void Device::clearInfo() {
     _recordedRSSI = MIN_RSSI;
     _detected = false;
+    _present = false;
 }
 
 //////// USER METHODS ////////
@@ -53,6 +55,14 @@ std::string User::getName() {
 
 Device** User::getDevices() {
     return _devices;
+}
+
+bool User::getPresent() {
+    for (unsigned int i = 0; i < MAX_DEVICES; i++) {
+        if (_devices[i] == nullptr) continue;
+        if (_devices[i]->getPresent()) return true;
+    }
+    return false;
 }
 
 int User::addDevice(Device* device) {
@@ -86,7 +96,7 @@ int Registry::addDevice(Device* device) {
 Device* Registry::getDevice(BLEAddress address) {
     for (unsigned int i = 0; i < MAX_USERS * MAX_DEVICES; i++) {
         if (devices[i] == nullptr) continue;
-        Serial.printf("(%s) ", devices[i]->getAddress().toString());
+        //Serial.printf("(%s) ", devices[i]->getAddress().toString());
         if (address.equals(devices[i]->getAddress()))
         return devices[i];
     }

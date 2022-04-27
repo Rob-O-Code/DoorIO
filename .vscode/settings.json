@@ -18,6 +18,15 @@
         "strings": false
     },
     "editor.suggestOnTriggerCharacters": true,
+    "files.exclude": {
+        "${workspaceRoot}/build": true,
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true
+    },
     "files.associations": {
         "array": "cpp",
         "deque": "cpp",

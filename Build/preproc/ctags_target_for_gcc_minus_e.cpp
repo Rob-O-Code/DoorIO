@@ -17,7 +17,7 @@ Scheduler tasks, hp_tasks;
 void pollSensors();
 Task T_pollSensors(1UL * 50, (-1), &pollSensors, &hp_tasks, false);
 void pollBluetooth();
-Task T_pollBluetooth(0, 1, &pollBluetooth, &tasks, false);
+Task T_pollBluetooth(1000UL * 10, (-1), &pollBluetooth, &tasks, false);
 void backlightDim();
 Task T_backlightDim(1UL * 50, (-1), &backlightDim, &hp_tasks, false);
 
@@ -27,43 +27,32 @@ MyDisplay myDisplay;
 MyIO myIO;
 Registry registry;
 
-/*
 
-User *robbie, *nate;
+User *robbie, *nate, *cam;
 
-*/
-# 33 "c:\\Users\\rpole\\Documents\\DoorIO\\DoorIO.ino"
+
 void setup() {
  Serial.begin(115200);
 
- /* users and devices example
+ /* users and devices example */
 
-	
+ robbie = new User("Robbie");
+ nate = new User("Nate");
+ cam = new User("Cam");
+ Device* flip52 = new Device(BLEAddress("b8:f6:53:92:a9:a3"), "Flip 5.2", -55);
+ robbie->addDevice(flip52);
+ nate->addDevice(flip52);
+ registry.addDevice(flip52);
+ Device* nateHeadphones = new Device(BLEAddress("94:db:56:02:61:6b"), "Nate's Headpho.", -55);
+ nate->addDevice(nateHeadphones);
+ registry.addDevice(nateHeadphones);
+ Device* keyboard = new Device(BLEAddress("28:18:78:17:24:3b"), "BT Keyboard", -55);
+ cam->addDevice(keyboard);
+ registry.addDevice(keyboard);
+ Device* flip51 = new Device(BLEAddress("5c:fb:7c:cc:df:e8"), "Flip 5.1", -55);
+ robbie->addDevice(flip51);
+ registry.addDevice(flip51);
 
-	robbie = new User("Robbie");
-
-	Device* flip52 = new Device(BLEAddress("b8:f6:53:92:a9:a3"), "Flip 5.2", -58);
-
-	robbie->addDevice(flip52);
-
-	registry.addDevice(flip52);
-
-	Device* nateHeadphones = new Device(BLEAddress("94:db:56:02:61:6b"), "Nate's Headphones", -58);
-
-	robbie->addDevice(nateHeadphones);
-
-	registry.addDevice(nateHeadphones);
-
-	nate = new User("Nate");
-
-	Device* flip51 = new Device(BLEAddress("5c:fb:7c:cc:df:e8"), "Flip 5.1", -58);
-
-	nate->addDevice(flip51);
-
-	registry.addDevice(flip51);
-
-	*/
-# 51 "c:\\Users\\rpole\\Documents\\DoorIO\\DoorIO.ino"
  if (myIO.init()) {
   Serial.println("Error initializing IO");
   while (1);
@@ -79,23 +68,13 @@ void setup() {
  T_backlightDim.restart();
  T_pollSensors.restart();
 
+ myDisplay.setScreen(SCREEN_WELCOME);
  myDisplay.update();
  delay(500UL);
 
- /* display example 
-
-	myDisplay.update();
-
-	delay(500UL);
-
-	myDisplay.setUser(0, robbie);
-
-	myDisplay.setUser(1, nate);
-
-	myDisplay.setScreen(Debug);
-
-	*/
-# 76 "c:\\Users\\rpole\\Documents\\DoorIO\\DoorIO.ino"
+ myDisplay.setUser(0, robbie);
+ myDisplay.setUser(1, nate);
+ myDisplay.setUser(2, cam);
 }
 
 void loop() {
@@ -139,28 +118,91 @@ void loop() {
 	delay(2000UL);
 
 	*/
-# 100 "c:\\Users\\rpole\\Documents\\DoorIO\\DoorIO.ino"
+# 101 "c:\\Users\\rpole\\Documents\\DoorIO\\DoorIO.ino"
 }
 
+bool isStandby = false;
 void pollSensors() {
  //Serial.println("--- TASK BEGIN: pollSensors() ---");
- if (myIO.lastOpen() < 50UL) {
-  //Serial.println("Trigger");
-  myIO.setBuzz(0x1);
-  delay(100UL);
-  myIO.setBuzz(0x0);
+
+ // PIR Sensor: Is there someone at the door?
+ if (myIO.lastPIR() > 5000UL) {
+  Serial.println("No one here...");
+  standby();
+  delay(500UL);
+  return;
+ }
+ isStandby = false;
+
+ // Someone is here, so ensure that Bluetooth is polling
+ if (!T_pollBluetooth.isEnabled()) {
+  newSession();
+  T_pollBluetooth.restart();
  }
 
+ // Backlight: How bright should the display be?
  uint8_t b = myIO.mapPhotoToBacklight(myIO.getPhotoSmooth());
- Serial.println(b);
  myDisplay.setBacklight(b);
+
+ // Accelerometer: Did someone open the door?
+ if (myIO.lastOpen() < 50UL) {
+  //Serial.println("Trigger");
+  egress();
+ }
+
  //Serial.println("--- TASK COMPLETE: pollSensors() ---");
 }
 
+void newSession() {
+ myBluetooth.clearRegistry();
+}
+
 void pollBluetooth() {
- myBluetooth.testScan();
+ Serial.println("--- TASK BEGIN: pollBluetooth() ---");
+ myDisplay.setScreen(SCREEN_BTWAIT);
+ myDisplay.update();
+ delay(500UL);
+ myBluetooth.scan();
+ myDisplay.setScreen(SCREEN_REPORT);
+ myDisplay.update();
+ Serial.println("--- TASK COMPLETE: pollBluetooth() ---");
 }
 
 void backlightDim() {
  myDisplay.fadeBacklight();
+}
+
+void standby() {
+ myIO.getPhotoSmooth();
+ if (isStandby) return;
+ T_pollBluetooth.abort();
+ myDisplay.setBacklight(0, BACKLIGHT_IMMEDIATE);
+ myDisplay.setScreen(SCREEN_NONE);
+ myDisplay.update();
+ isStandby = true;
+}
+
+void egress() {
+ T_pollBluetooth.abort();
+ myIO.setBuzz(0x1);
+ delay(50UL);
+ myIO.setBuzz(0x0);
+
+ delay(200UL);
+
+ if (myDisplay.isMissing()) {
+  myDisplay.setScreen(SCREEN_ALERT);
+  myDisplay.update();
+  for (uint8_t i = 0; i < 3; i++) {
+   myIO.setBuzz(0x1);
+   delay(300UL);
+   myIO.setBuzz(0x0);
+   delay(50UL);
+  }
+  delay(2000UL);
+ } else Serial.println("All good!");
+
+ isStandby = false;
+ standby();
+ delay(5000UL);
 }
