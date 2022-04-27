@@ -18,7 +18,6 @@
             "forcedInclude": [
                 "C:\\USERS\\RPOLE\\APPDATA\\LOCAL\\ARDUINO15\\PACKAGES\\ESP32\\HARDWARE\\ESP32\\1.0.6\\CORES\\ESP32\\esp32-hal.h",
                 "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\cores\\esp32\\Print.h"
-                //"C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"
             ],
             "cStandard": "gnu17",
             "cppStandard": "gnu++14",
@@ -126,6 +125,10 @@
                 "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\Wire\\src",
                 "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_GFX_Library",
                 "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_RA8875",
+                "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ArduinoJson\\src",
+                "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFi\\src",
+                "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\HTTPClient\\src",
+                "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFiClientSecure\\src",
                 "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_BusIO",
                 "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\EEPROM\\src",
                 "c:\\users\\rpole\\appdata\\local\\arduino15\\packages\\esp32\\tools\\xtensa-esp32-elf-gcc\\1.22.0-97-gc752ad5-5.2.0\\xtensa-esp32-elf\\include\\c++\\5.2.0",

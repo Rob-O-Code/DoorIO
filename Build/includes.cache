@@ -1,0 +1,362 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\cores\\esp32"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\variants\\pico32"
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\DoorIO.ino.cpp",
+    "Include": "BLEDevice.h",
+    "Includepath": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src"
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\DoorIO.ino.cpp",
+    "Include": "SPI.h",
+    "Includepath": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\SPI\\src"
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\DoorIO.ino.cpp",
+    "Include": "Wire.h",
+    "Includepath": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\Wire\\src"
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\DoorIO.ino.cpp",
+    "Include": "Adafruit_GFX.h",
+    "Includepath": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_GFX_Library"
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\DoorIO.ino.cpp",
+    "Include": "Adafruit_RA8875.h",
+    "Includepath": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_RA8875"
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\DoorIO.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\IO.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\bluetooth.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\display.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\internet.cpp",
+    "Include": "ArduinoJson.h",
+    "Includepath": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ArduinoJson\\src"
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\internet.cpp",
+    "Include": "WiFi.h",
+    "Includepath": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFi\\src"
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\internet.cpp",
+    "Include": "HTTPClient.h",
+    "Includepath": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\HTTPClient\\src"
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\internet.cpp",
+    "Include": "WiFiClientSecure.h",
+    "Includepath": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFiClientSecure\\src"
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\internet.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\user.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLE2902.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLE2904.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEAddress.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEAdvertisedDevice.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEAdvertising.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEBeacon.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLECharacteristic.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLECharacteristicMap.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEClient.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEDescriptor.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEDescriptorMap.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEDevice.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEEddystoneTLM.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEEddystoneURL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEExceptions.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEHIDDevice.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLERemoteCharacteristic.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLERemoteDescriptor.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLERemoteService.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEScan.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLESecurity.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEServer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEService.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEServiceMap.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEUUID.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEUtils.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\BLEValue.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\FreeRTOS.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\ESP32_BLE_Arduino\\src\\GeneralUtils.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\SPI\\src\\SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\Wire\\src\\Wire.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_GFX_Library\\Adafruit_GFX.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_GFX_Library\\Adafruit_GrayOLED.cpp",
+    "Include": "Adafruit_I2CDevice.h",
+    "Includepath": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_BusIO"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_GFX_Library\\Adafruit_GrayOLED.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_GFX_Library\\Adafruit_SPITFT.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_GFX_Library\\glcdfont.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_RA8875\\Adafruit_RA8875.cpp",
+    "Include": "EEPROM.h",
+    "Includepath": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\EEPROM\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_RA8875\\Adafruit_RA8875.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFi\\src\\ETH.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFi\\src\\WiFi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFi\\src\\WiFiAP.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFi\\src\\WiFiClient.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFi\\src\\WiFiGeneric.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFi\\src\\WiFiMulti.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFi\\src\\WiFiSTA.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFi\\src\\WiFiScan.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFi\\src\\WiFiServer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFi\\src\\WiFiUdp.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\HTTPClient\\src\\HTTPClient.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFiClientSecure\\src\\WiFiClientSecure.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFiClientSecure\\src\\ssl_client.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_BusIO_Register.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_I2CDevice.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_SPIDevice.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\EEPROM\\src\\EEPROM.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]

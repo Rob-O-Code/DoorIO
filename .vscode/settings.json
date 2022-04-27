@@ -80,6 +80,7 @@
         "typeinfo": "cpp",
         "esp32-hal.h": "c",
         "tcpip_adapter.h": "c",
-        "sntp.h": "c"
+        "sntp.h": "c",
+        "esp32-hal-time.c": "cpp"
     }
 }

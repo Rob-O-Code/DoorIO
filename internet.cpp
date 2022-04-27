@@ -1,19 +1,25 @@
 #include "internet.h"
 
-void MyInternet::init() {
+int MyInternet::init() {
     if (initWifi() != WL_CONNECTED) {
         Serial.println("Connection failed");
+        return -1;
     }
+    if (!setupTime()) {
+        Serial.println("Failed to set up time");
+        return -2;
+    }
+    return 0;
 }
 
 wl_status_t MyInternet::initWifi() {
-    Serial.print("\r\nConnecting to: "); Serial.println(String(ssid));
+    Serial.print("\r\nConnecting to: "); Serial.println(String(mySSID));
     IPAddress dns(8, 8, 8, 8); // Google DNS
     WiFi.disconnect();
     WiFi.mode(WIFI_STA); // switch off AP
     WiFi.setAutoConnect(true);
     WiFi.setAutoReconnect(true);
-    WiFi.begin(ssid, password);
+    WiFi.begin(mySSID, myPassword);
     unsigned long start = millis();
     wl_status_t connectionStatus;
     bool AttemptConnection = true;
@@ -37,14 +43,20 @@ wl_status_t MyInternet::initWifi() {
 
 bool MyInternet::setupTime() {
     configTime(-5 * 3600, 3600, "time.nist.gov", "0.north-america.pool.ntp.org", "");
+    delay(100UL);
+    return updateTime();
 }
 
-tm* getTime() {
+bool MyInternet::updateTime() {
     struct tm *timeInfo = new struct tm;
     while (!getLocalTime(timeInfo, 10000)) { // Wait for 10-sec for time to synchronise
         Serial.println("Failed to obtain time");
-        return nullptr;
+        return false;
     }
+    currentTimestamp = millis();
+    delete currentTime;
+    currentTime = timeInfo;
+    return true;
 }
 
 Forecast_t* MyInternet::getForecast(WiFiClient & client, const String & type) {
@@ -53,7 +65,7 @@ Forecast_t* MyInternet::getForecast(WiFiClient & client, const String & type) {
     HTTPClient http;
 
     // TODO: add more user preferences
-    String uri = "/data/2.5/" + type + "?q=Worcester,USA&APPID=" + apiKey + "&mode=json&units=imperial&lang=EN";
+    String uri = "/data/2.5/" + type + "?q=Worcester,USA&APPID=" + myApiKey + "&mode=json&units=imperial&lang=EN";
     if (type != "weather") {
         uri += "&cnt=2"; //+ String(MaxReadings);
     }
