@@ -5,7 +5,20 @@
 #include "bluetooth.h"
 #include "display.h"
 #include "IO.h"
-//#include "internet.h"
+
+#define _TASK_SLEEP_ON_IDLE_RUN
+#define _TASK_PRIORITY
+#define _TASK_WDT_IDS
+#define _TASK_TIMECRITICAL
+#include "TaskScheduler.h"
+
+Scheduler tasks, hp_tasks;
+void pollSensors();
+Task T_pollSensors(TASK_MILLISECOND * 50, TASK_FOREVER, &pollSensors, &hp_tasks, false);
+void pollBluetooth();
+Task T_pollBluetooth(TASK_IMMEDIATE, TASK_ONCE, &pollBluetooth, &tasks, false);
+void backlightDim();
+Task T_backlightDim(TASK_MILLISECOND * 50, TASK_FOREVER, &backlightDim, &hp_tasks, false);
 
 //MyInternet myInternet;
 MyBluetooth myBluetooth;
@@ -13,7 +26,9 @@ MyDisplay myDisplay;
 MyIO myIO;
 Registry registry;
 
+/*
 User *robbie, *nate;
+*/
 
 void setup() {
 	Serial.begin(115200);
@@ -33,12 +48,23 @@ void setup() {
 	registry.addDevice(flip51);
 	*/
 
-	myIO.init();
+	if (myIO.init()) {
+		Serial.println("Error initializing IO");
+		while (1);
+	}
 	if (myDisplay.init()) {
 		Serial.println("Error initializing display");
 		while (1);
 	};
 	myBluetooth.init(&registry);
+
+
+	tasks.setHighPriorityScheduler(&hp_tasks);
+	T_backlightDim.restart();
+	T_pollSensors.restart();
+
+	myDisplay.update();
+	delay(500UL);
 
 	/* display example 
 	myDisplay.update();
@@ -50,9 +76,8 @@ void setup() {
 }
 
 void loop() {
-	Serial.println("loop!");
-	delay(1000UL);
-	/* test code */
+	tasks.execute();
+	/* test code 
 	while (!myIO.isPIR());
 		registry.clearInfo();
 		myDisplay.update();
@@ -71,4 +96,28 @@ void loop() {
 		delay(2UL);
 	}
 	delay(2000UL);
+	*/
+}
+
+void pollSensors() {
+	//Serial.println("--- TASK BEGIN: pollSensors() ---");
+	if (myIO.lastOpen() < 50UL) {
+		//Serial.println("Trigger");
+		myIO.setBuzz(HIGH);
+		delay(50UL);
+		myIO.setBuzz(LOW);
+	}
+
+	uint8_t b = myIO.mapPhotoToBacklight(myIO.getPhotoSmooth());
+	//Serial.println(b);
+	myDisplay.setBacklight(b);
+	//Serial.println("--- TASK COMPLETE: pollSensors() ---");
+}
+
+void pollBluetooth() {
+	myBluetooth.testScan();
+}
+
+void backlightDim() {
+	myDisplay.fadeBacklight();
 }

@@ -9,7 +9,7 @@ int MyDisplay::init() {
     _tft.displayOn(true);
     _tft.GPIOX(true);      // Enable TFT - display enable tied to GPIOX
     _tft.PWM1config(true, RA8875_PWM_CLK_DIV1024); // PWM output for backlight
-    _tft.PWM1out(50);
+    _tft.PWM1out(DEFAULT_BRIGHTNESS);
 
     _tft.fillScreen(RA8875_BLACK);
 
@@ -47,8 +47,23 @@ void MyDisplay::setUser(unsigned int i, User* user) {
     userArr[i] = user;
 }
 
-void MyDisplay::setBacklight(uint8_t b) {
-    _tft.PWM1out(b);
+void MyDisplay::setBacklight(uint8_t b, BacklightFade fade) {
+    if (fade == BACKLIGHT_FADE) {
+        targetBacklight = b;
+        fadeBacklight();
+    } else if (fade == BACKLIGHT_IMMEDIATE) {
+        _tft.PWM1out(targetBacklight = b);
+    }
+}
+
+void MyDisplay::fadeBacklight() {
+    if (currentBacklight == targetBacklight) return;
+    if (currentBacklight - FADE_AMOUNT > targetBacklight) {
+        _tft.PWM1out(targetBacklight = targetBacklight - FADE_AMOUNT);
+    } else if (currentBacklight + FADE_AMOUNT < targetBacklight) {
+        _tft.PWM1out(targetBacklight = targetBacklight + FADE_AMOUNT);
+    }
+    _tft.PWM1out(currentBacklight = targetBacklight);
 }
 
 void MyDisplay::DBG_draw() {

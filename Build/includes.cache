@@ -36,6 +36,26 @@
   },
   {
     "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\DoorIO.ino.cpp",
+    "Include": "Adafruit_MSA301.h",
+    "Includepath": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_MSA301"
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\DoorIO.ino.cpp",
+    "Include": "Adafruit_BusIO_Register.h",
+    "Includepath": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_BusIO"
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\DoorIO.ino.cpp",
+    "Include": "Adafruit_Sensor.h",
+    "Includepath": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_Unified_Sensor"
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\DoorIO.ino.cpp",
+    "Include": "TaskScheduler.h",
+    "Includepath": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\TaskScheduler\\src"
+  },
+  {
+    "Sourcefile": "c:\\Users\\rpole\\Documents\\DoorIO\\Build\\sketch\\DoorIO.ino.cpp",
     "Include": "",
     "Includepath": null
   },
@@ -246,11 +266,6 @@
   },
   {
     "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_GFX_Library\\Adafruit_GrayOLED.cpp",
-    "Include": "Adafruit_I2CDevice.h",
-    "Includepath": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_BusIO"
-  },
-  {
-    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_GFX_Library\\Adafruit_GrayOLED.cpp",
     "Include": "",
     "Includepath": null
   },
@@ -271,6 +286,31 @@
   },
   {
     "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_RA8875\\Adafruit_RA8875.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_MSA301\\Adafruit_MSA301.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_BusIO_Register.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_I2CDevice.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_SPIDevice.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_Unified_Sensor\\Adafruit_Sensor.cpp",
     "Include": "",
     "Includepath": null
   },
@@ -336,21 +376,6 @@
   },
   {
     "Sourcefile": "C:\\Users\\rpole\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.6\\libraries\\WiFiClientSecure\\src\\ssl_client.cpp",
-    "Include": "",
-    "Includepath": null
-  },
-  {
-    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_BusIO_Register.cpp",
-    "Include": "",
-    "Includepath": null
-  },
-  {
-    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_I2CDevice.cpp",
-    "Include": "",
-    "Includepath": null
-  },
-  {
-    "Sourcefile": "C:\\Users\\rpole\\OneDrive\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_SPIDevice.cpp",
     "Include": "",
     "Includepath": null
   },
